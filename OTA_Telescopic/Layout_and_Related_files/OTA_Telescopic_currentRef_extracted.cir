@@ -1,0 +1,18 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 26/02/2026 22:34
+
+.SUBCKT OTA_Telescopic_currentRef VSS I_N I_P VDD
+M$1 \$2 \$18 \$5 VSS sg13_lv_nmos L=6.4u W=96u AS=21.84p AD=21.84p PS=127.28u
++ PD=127.28u
+M$17 VSS \$18 \$18 VSS sg13_lv_nmos L=6.4u W=12u AS=3.18p AD=3.18p PS=19.06u
++ PD=19.06u
+M$19 VDD \$5 \$18 VDD sg13_lv_pmos L=2.5u W=12u AS=3.18p AD=2.28p PS=19.06u
++ PD=12.76u
+M$21 VDD \$5 \$5 VDD sg13_lv_pmos L=2.5u W=12u AS=2.28p AD=2.28p PS=12.76u
++ PD=12.76u
+M$23 VDD \$5 I_P VDD sg13_lv_pmos L=2.5u W=12u AS=2.28p AD=3.18p PS=12.76u
++ PD=19.06u
+R$25 VSS \$2 rppd w=1u l=11.5u ps=0 b=0 m=1
+M$26 \$18 \$5 \$5 VSS sg13_lv_nmos L=1u W=2u AS=0.68p AD=0.68p PS=4.68u PD=4.68u
+M$27 VSS \$18 I_N VSS sg13_lv_nmos L=6.5u W=12.5u AS=3.3125p AD=3.3125p
++ PS=19.81u PD=19.81u
+.ENDS OTA_Telescopic_currentRef
