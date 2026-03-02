@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 26/02/2026 22:34
+* Extracted by KLayout with SG13G2 LVS runset on : 02/03/2026 21:20
 
 .SUBCKT OTA_Telescopic_currentRef VSS I_N I_P VDD
 M$1 \$2 \$18 \$5 VSS sg13_lv_nmos L=6.4u W=96u AS=21.84p AD=21.84p PS=127.28u
