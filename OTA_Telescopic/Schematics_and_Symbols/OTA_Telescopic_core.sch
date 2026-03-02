@@ -13,6 +13,7 @@ T {(5.5mA)} -285 -240 0 0 0.4 0.4 {}
 T {(5.5mA)} 505 -240 0 0 0.4 0.4 {}
 T {(600uA)} -5 -240 0 0 0.4 0.4 {}
 T {(600uA)} 205 -240 0 0 0.4 0.4 {}
+T {W=30u (changed because LVS) 29.97u} -250 350 0 0 0.4 0.4 {}
 N 30 -110 30 -70 {lab=Vx1}
 N 30 20 30 50 {lab=Vo1}
 N 30 110 30 140 {lab=Vy1}
@@ -310,7 +311,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 130 280 0 0 {name=M0
 l=0.20u
-w=30u
+w=29.97u
 ng=9
 m=6
 model=sg13_lv_nmos
@@ -356,7 +357,7 @@ m=55
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/rppd.sym} -210 100 1 0 {name=R3
+C {sg13g2_pr/rppd.sym} -140 100 1 0 {name=R3
 w=1.5e-6
 l=0.55e-6
 model=rppd
@@ -365,7 +366,7 @@ spiceprefix=X
 b=0
 m=1
 }
-C {sg13g2_pr/rppd.sym} 500 100 1 0 {name=R1
+C {sg13g2_pr/rppd.sym} 430 100 1 0 {name=R1
 w=1.5e-6
 l=0.55e-6
 model=rppd
@@ -374,13 +375,13 @@ spiceprefix=X
 b=0
 m=1
 }
-C {sg13g2_pr/cap_cmim.sym} 430 100 3 0 {name=C3
+C {sg13g2_pr/cap_cmim.sym} 500 100 3 0 {name=C3
 model=cap_cmim
 w=21.4e-6
 l=21.4e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} -140 100 1 0 {name=C1
+C {sg13g2_pr/cap_cmim.sym} -210 100 1 0 {name=C1
 model=cap_cmim
 w=21.4e-6
 l=21.4e-6

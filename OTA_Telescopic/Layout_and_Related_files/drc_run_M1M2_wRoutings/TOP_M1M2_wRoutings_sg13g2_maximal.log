@@ -1,0 +1,9 @@
+# Logfile created on 2026-03-02 02:09:54 +0100 by logger.rb/v1.5.3
+2026-03-02 02:09:54 +0100: Memory Usage (436712K) : Starting running IHP-SG13G2 Klayout DRC maximum runset on /foss/designs/HPAmplifier/OTA_Telescopic/Layout_and_Related_files/TOP.gds
+2026-03-02 02:09:54 +0100: Memory Usage (436712K) : Ruby Version for klayout: 3.2.3
+2026-03-02 02:09:54 +0100: Memory Usage (437864K) : Loading database to memory is complete.
+2026-03-02 02:09:54 +0100: Memory Usage (437864K) : IHP-SG13G2 Klayout DRC maximum runset output at: /foss/designs/HPAmplifier/OTA_Telescopic/Layout_and_Related_files/drc_run_M1M2_wRoutings/TOP_M1M2_wRoutings_sg13g2_maximal.lyrdb
+2026-03-02 02:09:54 +0100: Memory Usage (437992K) : Evaluate switches.
+2026-03-02 02:09:54 +0100: Memory Usage (437992K) : Klayout will use  thread(s)
+2026-03-02 02:09:54 +0100: Memory Usage (437992K) : deep mode is enabled for sg13g2_maximal runset.
+2026-03-02 02:09:56 +0100: Memory Usage (479208K) : KLayout DRC run for maximum ruleSet completed in 2.02 seconds
