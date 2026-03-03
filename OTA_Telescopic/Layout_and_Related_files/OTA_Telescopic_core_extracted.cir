@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 03/03/2026 00:31
+* Extracted by KLayout with SG13G2 LVS runset on : 03/03/2026 21:20
 
 .SUBCKT OTA_Telescopic_core VSS IB CMFB VINP VINN VDD VOUTP VOUTN
 M$1 \$18 \$18 VDD VDD sg13_lv_pmos L=0.35u W=2.05u AS=0.697p AD=0.3895p
