@@ -1,10 +1,12 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
 F {}
 E {}
+T {127.022uA} -340 -560 0 0 0.4 0.4 {}
+T {127.999uA} -120 -560 0 0 0.4 0.4 {}
 N -300 -520 -60 -520 {
 lab=VDD}
 N -170 -100 -100 -100 {

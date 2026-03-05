@@ -1,4 +1,4 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
@@ -7,6 +7,9 @@ F {}
 E {}
 T {W=9u (changed because LVS) 8.995u
 W=30u (changed because LVS) 29.97u} -670 100 0 0 0.4 0.4 {}
+T {133.27uA} -670 -340 0 0 0.4 0.4 {}
+T {385.59uA} -170 -340 0 0 0.4 0.4 {}
+T {385.59uA} 240 -340 0 0 0.4 0.4 {}
 N -240 -100 -240 -80 {lab=V1}
 N -120 -100 0 -100 {lab=V1}
 N 0 -100 0 -80 {lab=V1}
