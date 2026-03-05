@@ -1,9 +1,0 @@
-05-Mar-2026 03:11:45 | INFO    | KLayout version detected: 0.30.5
-05-Mar-2026 03:11:45 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json
-05-Mar-2026 03:11:45 | INFO    | Running IHP-SG13G2 main checks on design /foss/designs/HPAmplifier/OTA_Telescopic/Layout_and_Related_files/OTA_Telescopic_core.gds, topcell: OTA_Telescopic_core
-05-Mar-2026 03:11:50 | INFO    | Running IHP-SG13G2 sg13g2_maximal checks on design /foss/designs/HPAmplifier/OTA_Telescopic/Layout_and_Related_files/OTA_Telescopic_core.gds, topcell: OTA_Telescopic_core
-05-Mar-2026 03:12:00 | INFO    | Completed running Sg13g2_maximal checks.
-05-Mar-2026 03:12:00 | INFO    | =====================================================================================
-05-Mar-2026 03:12:00 | INFO    | ✅ --- KLayout DRC Check Passed: No DRC violations detected in the layout. --- ✅
-05-Mar-2026 03:12:00 | INFO    | =====================================================================================
-05-Mar-2026 03:12:00 | INFO    | Total DRC Run time: 15.17 seconds (including execution, analysis, and reporting)
