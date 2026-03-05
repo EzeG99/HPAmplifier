@@ -1,4 +1,4 @@
-<img width="797" height="695" alt="image" src="https://github.com/user-attachments/assets/34c5182e-b2e6-403a-8e89-d8d6b84ccede" /># UNIC-CASS Postulations by Fundación Fulgor
+# UNIC-CASS Postulations by Fundación Fulgor
 
 This repository contains 5 versions of the HPA design. The first 3 are outdated versions, while the one called "OTA_Telescopic" includes the latest progress. In addition, the "OTA_Telescopic_TEST" folder contains tests of alternative solutions to issues with the tools/software.
 
