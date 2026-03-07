@@ -1,7 +1,6 @@
 * NGSPICE file created from OTA_Telescopic_TOP_wp.ext - technology: ihp-sg13g2
 
-.subckt OTA_Telescopic_TOP_wp VREF CMFBout CMFBin VOUTN VOUTP VDD VSS VP VN VPout
-+ VPin VNin VNout
+.subckt OTA_Telescopic_TOP_wp VDD VSS VPout VPin VOUTP VP VN VOUTN VNin VNout CMFBin VREF CMFBout
 X0 VOUTN.t104 a_n10106_3341# VDD.t99 VDD.t1 sg13_lv_pmos ad=0.2603p pd=1.75u as=0.2603p ps=1.75u w=1.37u l=0.35u
 X1 a_n3162_51# VPin.t0 a_n1828_1772# VSS.t272 sg13_lv_nmos ad=0.209p pd=1.48u as=0.209p ps=1.48u w=1.1u l=0.15u
 X2 VDD.t647 a_1220_1772# VOUTP.t72 VDD.t1 sg13_lv_pmos ad=0.4658p pd=3.42u as=0.2603p ps=1.75u w=1.37u l=0.35u
