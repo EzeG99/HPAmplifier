@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 06/03/2026 19:57
+* Extracted by KLayout with SG13G2 LVS runset on : 07/03/2026 03:50
 
 .SUBCKT HPA VSS VINp VINn VDD VOUTn VOUTp VREF
 X$2 VSS \$9 VOUTn VOUTp VDD \$9 VREF VINp VINn \$11 \$11 \$12 \$12
@@ -7,20 +7,20 @@ X$2 VSS \$9 VOUTn VOUTp VDD \$9 VREF VINp VINn \$11 \$11 \$12 \$12
 
 .SUBCKT OTA_Telescopic_TOP_wp VSS CMFBout VOUTN VOUTP VDD CMFBin VREF VP VN
 + VPout VPin VNin VNout
-X$9 VSS CMFBout VOUTN VOUTP VREF VDD \$24 OTA_Telescopic_CMFB
-X$10 VSS \$24 I_P VDD OTA_Telescopic_currentRef
-X$11 VPout VNout VSS VOUTN VOUTP CMFBin I_P VP VN VNin VPin VDD
+X$9 VSS CMFBout VOUTN VOUTP VREF VDD \$23 OTA_Telescopic_CMFB
+X$10 VSS \$23 \$5 VDD OTA_Telescopic_currentRef
+X$11 VPout VNout VSS VOUTN VOUTP CMFBin \$5 VP VN VNin VPin VDD
 + OTA_Telescopic_FB
 .ENDS OTA_Telescopic_TOP_wp
 
 .SUBCKT OTA_Telescopic_CMFB VSS CMFB VINP VINN VREF VDD IBIAS
 M$1 CMFB CMFB VSS VSS sg13_lv_nmos L=0.2u W=29.97u AS=6.1938p AD=5.6943p
 + PS=37.02u PD=33.39u
-M$10 VSS \$6 \$6 VSS sg13_lv_nmos L=0.2u W=29.97u AS=5.6943p AD=6.1938p
+M$10 VSS \$5 \$5 VSS sg13_lv_nmos L=0.2u W=29.97u AS=5.6943p AD=6.1938p
 + PS=33.39u PD=37.02u
-M$19 \$6 VREF \$39 VDD sg13_lv_pmos L=0.35u W=35.98u AS=7.2217p AD=6.8362p
+M$19 \$5 VREF \$39 VDD sg13_lv_pmos L=0.35u W=35.98u AS=7.2217p AD=6.8362p
 + PS=49.79u PD=46.62u
-M$33 \$6 VREF \$61 VDD sg13_lv_pmos L=0.35u W=35.98u AS=6.8362p AD=7.2217p
+M$33 \$5 VREF \$61 VDD sg13_lv_pmos L=0.35u W=35.98u AS=6.8362p AD=7.2217p
 + PS=46.62u PD=49.79u
 M$47 CMFB VINP \$39 VDD sg13_lv_pmos L=0.35u W=35.98u AS=7.2217p AD=6.8362p
 + PS=49.79u PD=46.62u

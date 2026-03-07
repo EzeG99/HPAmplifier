@@ -1,10 +1,10 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 06/03/2026 19:54
+* Extracted by KLayout with SG13G2 LVS runset on : 07/03/2026 03:45
 
-.SUBCKT OTA_Telescopic_TOP_wp VSS CMFBout VOUTN VOUTP I_P VDD CMFBin VREF VP VN
+.SUBCKT OTA_Telescopic_TOP_wp VSS CMFBout VOUTN VOUTP VDD CMFBin VREF VP VN
 + VPout VPin VNin VNout
-X$9 VSS CMFBout VOUTN VOUTP VREF VDD \$24 OTA_Telescopic_CMFB
-X$10 VSS \$24 I_P VDD OTA_Telescopic_currentRef
-X$11 VPout VNout VSS VOUTN VOUTP CMFBin I_P VP VN VNin VPin VDD
+X$9 VSS CMFBout VOUTN VOUTP VREF VDD \$23 OTA_Telescopic_CMFB
+X$10 VSS \$23 \$5 VDD OTA_Telescopic_currentRef
+X$11 VPout VNout VSS VOUTN VOUTP CMFBin \$5 VP VN VNin VPin VDD
 + OTA_Telescopic_FB
 .ENDS OTA_Telescopic_TOP_wp
 
