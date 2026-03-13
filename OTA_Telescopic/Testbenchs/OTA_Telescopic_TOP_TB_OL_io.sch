@@ -90,7 +90,7 @@ value="
 spice_ignore=false}
 C {code.sym} -795 -200 0 0 {name=AC only_toplevel=true value="
 .control
-save all
+*save all
  set color0 = white
 
 * AC simulation
@@ -137,7 +137,7 @@ write OTA_Telescopic_TOP_TB_OL.raw
 
 
 reset    
-noise v(Vout1) V6 dec 100 1 0.5e9 1
+*noise v(Vout1) V6 dec 100 1 0.5e9 1
 setplot noise1
 *plot onoise_spectrum
 setplot noise2
@@ -329,3 +329,4 @@ C {code_shown.sym} -1095 -505 0 0 {name=IOCells models only_toplevel=false value
 .include diodes.lib
 .lib cornerMOShv.lib mos_tt
 "}
+C {code_shown.sym} -690 -460 0 0 {name=s1 only_toplevel=false value=".inc ../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}

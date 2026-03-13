@@ -385,3 +385,4 @@ C {code_shown.sym} -550 -510 0 0 {name=IOCells models only_toplevel=false value=
 "}
 C {OTA_Telescopic_TOP_IOCells.sym} 245 -10 0 0 {name=x1}
 C {OTA_Telescopic_TOP_IOCells.sym} 1040 -5 0 0 {name=x2}
+C {code_shown.sym} -220 -490 0 0 {name=s1 only_toplevel=false value=".inc ../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}

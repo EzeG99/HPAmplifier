@@ -324,3 +324,4 @@ wrdata Vo Vo
 
 .endc
 "}
+C {code_shown.sym} -510 -410 0 0 {name=s1 only_toplevel=false value=".inc ../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}
