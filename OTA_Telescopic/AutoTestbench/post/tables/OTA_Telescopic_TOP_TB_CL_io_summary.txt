@@ -1,0 +1,6 @@
+Summary results for OTA_Telescopic_TOP_TB_CL_io
+===============================================
+Param        TT_VDD1.80_T65
+---------------------------
+Ao                  6.97559
+UGBW            8.35057E+08
