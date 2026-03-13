@@ -1,1 +1,4 @@
 simulations/
+netlist/*
+runs/*
+

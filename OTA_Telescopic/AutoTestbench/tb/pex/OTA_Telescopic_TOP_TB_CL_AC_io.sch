@@ -81,7 +81,7 @@ C {code.sym} -860 -250 0 0 {name=AC only_toplevel=true value="
 save Vout1 Vout2
 
 * AC simulation
-ac dec 1k 1 1T
+ac dec 10 1 1T
 let Av = db(v(Vout1)-v(Vout2))
 meas ac Ao FIND Av WHEN frequency=10
 let ABW = Ao-3
