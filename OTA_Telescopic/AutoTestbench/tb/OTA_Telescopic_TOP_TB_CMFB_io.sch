@@ -1,9 +1,9 @@
-v {xschem version=3.4.4 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {dc 0.9 pwl(0 0.8 0.005u 0.8 0.005u 0.9 0.15m 0.9 0.15m 0)} -325 360 0 0 0.4 0.4 {}
 N -35 210 -35 230 {lab=GND}
@@ -268,7 +268,7 @@ C {devices/gnd.sym} 1105 305 0 0 {name=l21 lab=GND}
 C {code.sym} -205 -180 0 0 {name=STB
 only_toplevel=true
 value="
-
+.nodeset v(Vout1)=0.9 v(Vout2)=0.9
 .options savecurrents reltol=1e-3 abstol=1e-12 gmin=1e-15
 .param VDD=$VDD
 .control
@@ -276,7 +276,7 @@ save VN VP Vout1 Vout2 vr1 vf1 vir1 vif1
 set color0 = white
 
 * AC Analysis
-ac dec 1k 1 5G
+ac dec 10 1 5G
 remzerovec
 write Middlebrook.raw
 set appendwrite
@@ -382,3 +382,4 @@ C {code_shown.sym} -550 -510 0 0 {name=IOCells models only_toplevel=false value=
 "}
 C {OTA_Telescopic_TOP_IOCells.sym} 245 -10 0 0 {name=x1}
 C {OTA_Telescopic_TOP_IOCells.sym} 1040 -5 0 0 {name=x2}
+C {code_shown.sym} 80 -540 0 0 {name=s1 only_toplevel=false value=".inc ../../../../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}

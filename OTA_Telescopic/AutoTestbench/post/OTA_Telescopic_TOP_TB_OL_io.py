@@ -34,6 +34,8 @@ BASE_PATH = Path("./runs/OTA_Telescopic_TOP_TB_OL_io")
 PLOT_DIR = Path("./post/plots")
 PLOT_DIR.mkdir(parents=True, exist_ok=True)
 
+SIM_TYPES = ["sch", "pex"]
+
 # ===============================
 # GAIN PLOT
 # ===============================
@@ -41,45 +43,56 @@ plt.figure(figsize=(7, 5))
 
 fmins, fmaxs = [], []
 
-for corner_dir in sorted(BASE_PATH.iterdir()):
-    if not corner_dir.is_dir():
+for sim_type in SIM_TYPES:
+
+    sim_path = BASE_PATH / sim_type
+    if not sim_path.exists():
+        print(f"⚠ Missing {sim_type} directory")
         continue
 
-    av_file = corner_dir / "AvOL.txt"
-    if not av_file.exists():
-        print(f"⚠ Skipping {corner_dir.name}: no AvOL.txt")
-        continue
+    linestyle = "-" if sim_type == "sch" else "--"
 
-    df = pd.read_csv(
-        av_file,
-        sep=r"\s+",
-        header=None,
-        names=["Frequency", "Av_dB"]
-    )
+    for corner_dir in sorted(sim_path.iterdir()):
 
-    plt.semilogx(
-        df["Frequency"],
-        df["Av_dB"],
-        linewidth=1.3,
-        label=format_label(corner_dir.name),
-    )
+        if not corner_dir.is_dir():
+            continue
 
-    fmins.append(df["Frequency"].min())
-    fmaxs.append(df["Frequency"].max())
+        av_file = corner_dir / "AvOL.txt"
+        if not av_file.exists():
+            print(f"⚠ Skipping {corner_dir.name} ({sim_type}): no AvOL.txt")
+            continue
 
-# Línea 0 dB
+        df = pd.read_csv(
+            av_file,
+            sep=r"\s+",
+            header=None,
+            names=["Frequency", "Av_dB"]
+        )
+
+        label = f"{format_label(corner_dir.name)} ({sim_type})"
+
+        plt.semilogx(
+            df["Frequency"],
+            df["Av_dB"],
+            linewidth=1.3,
+            linestyle=linestyle,
+            label=label,
+        )
+
+        fmins.append(df["Frequency"].min())
+        fmaxs.append(df["Frequency"].max())
+
 plt.axhline(0, linestyle="--", linewidth=1)
 
-# Límites Y
 plt.ylim(-10, 65)
+
 ax = plt.gca()
 ax.yaxis.set_major_locator(MultipleLocator(5))
 
-# Eje X por décadas (auto)
 if fmins and fmaxs:
     fmin = min(fmins)
     fmax = max(fmaxs)
-    fmax = 10e9 #Override
+    fmax = 10e9
 
     decades = 10 ** np.arange(
         np.floor(np.log10(fmin)),
@@ -98,6 +111,7 @@ plt.grid(True, which="both")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "AvOL.jpg", bbox_inches="tight")
+
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()
 
@@ -109,38 +123,49 @@ plt.figure(figsize=(7, 5))
 
 fmins, fmaxs = [], []
 
-for corner_dir in sorted(BASE_PATH.iterdir()):
-    if not corner_dir.is_dir():
+for sim_type in SIM_TYPES:
+
+    sim_path = BASE_PATH / sim_type
+    if not sim_path.exists():
         continue
 
-    phase_file = corner_dir / "PhaseOL.txt"
-    if not phase_file.exists():
-        print(f"⚠ Skipping {corner_dir.name}: no PhaseOL.txt")
-        continue
+    linestyle = "-" if sim_type == "sch" else "--"
 
-    df = pd.read_csv(
-        phase_file,
-        sep=r"\s+",
-        header=None,
-        names=["Frequency", "Phase"]
-    )
+    for corner_dir in sorted(sim_path.iterdir()):
 
-    # Unwrap fase (en grados)
-    df["Phase"] = np.rad2deg(
-        np.unwrap(np.deg2rad(df["Phase"]))
-    )
+        if not corner_dir.is_dir():
+            continue
 
-    plt.semilogx(
-        df["Frequency"],
-        df["Phase"],
-        linewidth=1.3,
-        label=format_label(corner_dir.name),
-    )
+        phase_file = corner_dir / "PhaseOL.txt"
 
-    fmins.append(df["Frequency"].min())
-    fmaxs.append(df["Frequency"].max())
+        if not phase_file.exists():
+            print(f"⚠ Skipping {corner_dir.name} ({sim_type}): no PhaseOL.txt")
+            continue
 
-# Línea -180°
+        df = pd.read_csv(
+            phase_file,
+            sep=r"\s+",
+            header=None,
+            names=["Frequency", "Phase"]
+        )
+
+        df["Phase"] = np.rad2deg(
+            np.unwrap(np.deg2rad(df["Phase"]))
+        )
+
+        label = f"{format_label(corner_dir.name)} ({sim_type})"
+
+        plt.semilogx(
+            df["Frequency"],
+            df["Phase"],
+            linewidth=1.3,
+            linestyle=linestyle,
+            label=label,
+        )
+
+        fmins.append(df["Frequency"].min())
+        fmaxs.append(df["Frequency"].max())
+
 plt.axhline(-180, linestyle="--", linewidth=1)
 
 plt.ylim(-300, 50)
@@ -151,7 +176,7 @@ ax.yaxis.set_major_locator(MultipleLocator(50))
 if fmins and fmaxs:
     fmin = min(fmins)
     fmax = max(fmaxs)
-    fmax = 10e9  # override
+    fmax = 10e9
 
     decades = 10 ** np.arange(
         np.floor(np.log10(fmin)),
@@ -170,5 +195,6 @@ plt.grid(True, which="both")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "PhaseOL.jpg", bbox_inches="tight")
+
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()

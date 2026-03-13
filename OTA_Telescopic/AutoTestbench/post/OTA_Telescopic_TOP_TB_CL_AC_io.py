@@ -25,7 +25,7 @@ if POST_MODE == "combined":
     legend_ncol = 2
 else:
     format_label = label_classic
-    legend_ncol = 1   # 👈 clave para classic
+    legend_ncol = 1
 
 # ===============================
 # Paths
@@ -34,6 +34,8 @@ BASE_PATH = Path("./runs/OTA_Telescopic_TOP_TB_CL_AC_io")
 PLOT_DIR = Path("./post/plots")
 PLOT_DIR.mkdir(parents=True, exist_ok=True)
 
+SIM_TYPES = ["sch", "pex"]
+
 # ===============================
 # Plot Gain
 # ===============================
@@ -41,51 +43,67 @@ plt.figure(figsize=(7, 5))
 
 fmins, fmaxs = [], []
 
-for corner_dir in sorted(BASE_PATH.iterdir()):
-    if not corner_dir.is_dir():
+for sim_type in SIM_TYPES:
+
+    sim_path = BASE_PATH / sim_type
+    if not sim_path.exists():
+        print(f"⚠ Missing {sim_type} directory")
         continue
 
-    av_file = corner_dir / "AvCL.txt"
-    if not av_file.exists():
-        print(f"⚠ Skipping {corner_dir.name}: no AvCL.txt")
-        continue
+    linestyle = "-" if sim_type == "sch" else "--"
 
-    df = pd.read_csv(
-        av_file,
-        sep=r"\s+",
-        header=None,
-        names=["Frequency", "Av_dB"]
-    )
+    for corner_dir in sorted(sim_path.iterdir()):
 
-    plt.semilogx(
-        df["Frequency"],
-        df["Av_dB"],
-        linewidth=1.5,
-        label=format_label(corner_dir.name)
-    )
+        if not corner_dir.is_dir():
+            continue
 
-    fmins.append(df["Frequency"].min())
-    fmaxs.append(df["Frequency"].max())
+        av_file = corner_dir / "AvCL.txt"
+        if not av_file.exists():
+            print(f"⚠ Skipping {corner_dir.name} ({sim_type}): no AvCL.txt")
+            continue
+
+        df = pd.read_csv(
+            av_file,
+            sep=r"\s+",
+            header=None,
+            names=["Frequency", "Av_dB"]
+        )
+
+        label = f"{format_label(corner_dir.name)} ({sim_type})"
+
+        plt.semilogx(
+            df["Frequency"],
+            df["Av_dB"],
+            linewidth=1.5,
+            linestyle=linestyle,
+            label=label
+        )
+
+        fmins.append(df["Frequency"].min())
+        fmaxs.append(df["Frequency"].max())
 
 # Línea 0 dB
 plt.axhline(0, linestyle="--", linewidth=1)
 
 # Eje Y
 plt.ylim(-3, 10)
+
 ax = plt.gca()
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
 # Eje X por décadas
-fmin = min(fmins)
-fmax = max(fmaxs)
+if fmins and fmaxs:
 
-decades = 10 ** np.arange(
-    np.floor(np.log10(fmin)),
-    np.ceil(np.log10(fmax)) + 1
-)
+    fmin = min(fmins)
+    fmax = max(fmaxs)
 
-plt.xticks(decades)
-plt.xlim(fmin, fmax)
+    decades = 10 ** np.arange(
+        np.floor(np.log10(fmin)),
+        np.ceil(np.log10(fmax)) + 1
+    )
+
+    plt.xticks(decades)
+    plt.xlim(fmin, fmax)
 
 # Labels
 plt.xlabel("Frequency [Hz]")
@@ -97,6 +115,6 @@ plt.grid(True, which="both")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "AvCL.jpg", bbox_inches="tight")
+
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()
-
