@@ -1,16 +1,16 @@
 simulations/
 
-runs/*
+AutoTestbench/runs/*
 !runs/.gitkeep
 
-netlist/*
-!netlist/.gitkeep
+AutoTestbench/netlist/*
+!AutoTestbench/netlist/.gitkeep
 
-post/plots/*
-!post/plots/.gitkeep
+AutoTestbench/post/plots/*
+!AutoTestbench/post/plots/.gitkeep
 
-post/tables/*
-!post/tables/.gitkeep
+AutoTestbench/post/tables/*
+!AutoTestbench/post/tables/.gitkeep
 
 
 

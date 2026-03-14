@@ -215,7 +215,22 @@ def main():
         help="Run simulations sequentially"
     )
 
+    parser.add_argument(
+        "--only-sch",
+        action="store_true",
+        help="Run only schematic simulations (skip PEX)"
+    )
+
     args = parser.parse_args()
+
+# ---------------------------
+# Simulation mode selection
+# ---------------------------
+    if args.only_sch:
+        modes = ["sch"]
+        print("▶ Running ONLY SCH simulations")
+    else:
+        modes = ["sch", "pex"]
 
     # ---------------------------
     # Corner selection
@@ -269,7 +284,7 @@ def main():
 
             tb_run_root.mkdir()
 
-            for mode in ["sch", "pex"]:
+            for mode in modes:
 
                 print(f"\n▶ Running mode: {mode}")
 
