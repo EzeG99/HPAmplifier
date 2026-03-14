@@ -21,9 +21,6 @@ __pycache__/
 coverage.xml
 htmlcov/
 
-# Jupyter
-.ipynb_checkpoints/
-
 # --------------------------------------------------
 # Virtual environments
 # --------------------------------------------------
