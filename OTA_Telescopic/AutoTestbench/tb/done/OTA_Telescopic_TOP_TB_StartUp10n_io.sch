@@ -1,9 +1,9 @@
-v {xschem version=3.4.4 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {dc 0.9 pwl(0 0.8 0.005u 0.8 0.005u 0.9 0.15m 0.9 0.15m 0)} -635 510 0 0 0.4 0.4 {}
 N -75 150 -75 230 {lab=VCM}
@@ -39,7 +39,7 @@ N -670 165 -610 165 {lab=sub!}
 N -510 115 -510 175 {lab=VDD}
 C {vsource.sym} -75 260 0 0 {name=V7 value=1.25 savecurrent=false}
 C {gnd.sym} -75 310 0 0 {name=l5 lab=GND}
-C {vsource.sym} -510 205 0 0 {name=V1 value="dc 1.8 pwl(0 0 100n \{VDD\})" savecurrent=false}
+C {vsource.sym} -510 205 0 0 {name=V1 value="dc 1.8 pwl(0 0 10n \{VDD\})" savecurrent=false}
 C {gnd.sym} -510 255 0 0 {name=l3 lab=GND}
 C {lab_wire.sym} -510 115 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {vsource.sym} -330 205 0 0 {name=V2 value="dc 0.9" savecurrent=false}
@@ -291,7 +291,7 @@ value="
 .param VDD=$VDD
 .control
 save v(VDD) v(Vout1) v(Vout2) i(V1) 
-tran 1n 500n
+tran 10n 500n
 *write NMOS_diode_large_signal.raw
 
 let VCM = v(Vout1)
@@ -313,3 +313,4 @@ wrdata Vo Vo
 
 .endc
 "}
+C {code_shown.sym} -400 -430 0 0 {name=s1 only_toplevel=false value=".inc ../../../../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}

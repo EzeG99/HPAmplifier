@@ -268,7 +268,7 @@ C {devices/gnd.sym} 1105 305 0 0 {name=l21 lab=GND}
 C {code.sym} -205 -180 0 0 {name=STB
 only_toplevel=true
 value="
-.nodeset v(Vout1)=0.9 v(Vout2)=0.9
+*.nodeset v(Vout1)=0.9 v(Vout2)=0.9
 .options savecurrents reltol=1e-3 abstol=1e-12 gmin=1e-15
 .param VDD=$VDD
 .control

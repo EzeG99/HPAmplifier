@@ -1,5 +1,19 @@
 simulations/
 
+runs/*
+!runs/.gitkeep
+
+netlist/*
+!netlist/.gitkeep
+
+post/plots/*
+!post/plots/.gitkeep
+
+post/tables/*
+!post/tables/.gitkeep
+
+
+
 # --------------------------------------------------
 # Python cache / compiled files
 # --------------------------------------------------

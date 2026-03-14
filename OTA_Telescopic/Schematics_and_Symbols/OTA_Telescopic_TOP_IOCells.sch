@@ -58,11 +58,11 @@ lab=VREF}
 N 1180 -1085 1360 -1085 {
 lab=vref}
 N 1220 -315 1240 -315 {
-lab=VSS}
+lab=#net1}
 N 1220 -515 1240 -515 {
-lab=VSS}
+lab=#net1}
 N 1220 -645 1240 -645 {
-lab=VSS}
+lab=#net1}
 N 1080 -475 1240 -475 {
 lab=VSS}
 N 1080 -465 1240 -465 {
@@ -84,61 +84,54 @@ lab=VSS}
 N 1180 -1055 1340 -1055 {
 lab=VDD}
 N 1180 -855 1220 -855 {
-lab=VSS}
+lab=#net1}
 N 1180 -865 1200 -865 {
-lab=VDD}
+lab=#net2}
 N 1180 -985 1220 -985 {
-lab=VSS}
+lab=#net1}
 N 1180 -995 1200 -995 {
-lab=VDD}
+lab=#net2}
 N 1180 -1105 1220 -1105 {
-lab=VSS}
+lab=#net1}
 N 1180 -1115 1200 -1115 {
-lab=VDD}
+lab=#net2}
 N 1200 -325 1240 -325 {
-lab=VDD}
+lab=#net2}
 N 1070 -275 1240 -275 {
 lab=VSS}
 N 1070 -265 1240 -265 {
 lab=VDD}
 N 1220 -515 1220 -315 {
-lab=VSS}
+lab=#net1}
 N 1200 -525 1240 -525 {
-lab=VDD}
+lab=#net2}
 N 1200 -525 1200 -325 {
-lab=VDD}
+lab=#net2}
 N 1200 -655 1200 -525 {
-lab=VDD}
+lab=#net2}
 N 1200 -655 1240 -655 {
-lab=VDD}
+lab=#net2}
 N 1220 -645 1220 -515 {
-lab=VSS}
+lab=#net1}
 N 1200 -865 1200 -655 {
-lab=VDD}
+lab=#net2}
 N 1220 -855 1220 -645 {
-lab=VSS}
+lab=#net1}
 N 1220 -985 1220 -855 {
-lab=VSS}
+lab=#net1}
 N 1220 -1105 1220 -985 {
-lab=VSS}
+lab=#net1}
 N 1200 -995 1200 -865 {
-lab=VDD}
+lab=#net2}
 N 1200 -1115 1200 -995 {
+lab=#net2}
+N 1070 -125 1240 -125 {
 lab=VDD}
-N 1200 -185 1200 -125 {lab=VDD}
-N 1220 -135 1240 -135 {
+N 1070 -135 1240 -135 {
 lab=VSS}
-N 1220 -175 1220 -135 {lab=VSS}
-N 1200 -125 1240 -125 {
-lab=VDD}
-N 1070 -125 1200 -125 {
-lab=VDD}
-N 1070 -135 1220 -135 {
-lab=VSS}
-N 1220 -175 1240 -175 {lab=VSS}
-N 1220 -315 1220 -175 {lab=VSS}
-N 1200 -185 1240 -185 {lab=VDD}
-N 1200 -325 1200 -185 {lab=VDD}
+N 1220 -175 1240 -175 {lab=#net1}
+N 1200 -185 1240 -185 {lab=#net2}
+N 1200 -220 1200 -185 {lab=#net2}
 N 615 -620 665 -620 {lab=voutp}
 N 615 -600 665 -600 {lab=voutn}
 N 275 -670 315 -670 {lab=vp}
@@ -150,6 +143,12 @@ N 235 -590 315 -590 {lab=VNin}
 N 555 -520 555 -460 {lab=CMFBout}
 N 510 -520 510 -460 {lab=CMFBin}
 N 430 -760 430 -700 {lab=vref}
+N 1140 -220 1200 -220 {lab=#net2}
+N 1200 -325 1200 -220 {lab=#net2}
+N 1140 -220 1140 -210 {lab=#net2}
+N 1220 -175 1220 -150 {lab=#net1}
+N 1220 -315 1220 -175 {lab=#net1}
+N 1140 -150 1220 -150 {lab=#net1}
 C {ipin.sym} 235 -630 0 0 {name=p6 lab=VPin}
 C {ipin.sym} 235 -590 0 0 {name=p9 lab=VNin}
 C {iopin.sym} 465 -760 3 0 {name=p19 lab=VDD}
@@ -230,3 +229,4 @@ C {iopin.sym} 850 -1145 0 1 {name=p35 lab=VREF}
 C {OTA_Telescopic_TOP_wp.sym} 465 -610 0 0 {name=x16}
 C {lab_wire.sym} 275 -670 0 0 {name=p38 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 275 -550 0 0 {name=p39 sig_type=std_logic lab=vn}
+C {vsource.sym} 1140 -180 0 0 {name=V1 value=1.8 savecurrent=false}

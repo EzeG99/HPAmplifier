@@ -1,9 +1,9 @@
-v {xschem version=3.4.4 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {dc 0.9 pwl(0 0.8 0.005u 0.8 0.005u 0.9 0.15m 0.9 0.15m 0)} -1015 390 0 0 0.4 0.4 {}
 N -450 140 -450 220 {lab=#net1}
@@ -43,7 +43,7 @@ N -670 155 -670 170 {lab=sub!}
 N -670 155 -610 155 {lab=sub!}
 C {vsource.sym} -450 250 0 0 {name=V7 value=1.25 savecurrent=false}
 C {gnd.sym} -450 300 0 0 {name=l5 lab=GND}
-C {vsource.sym} -560 -70 0 0 {name=V5 value="0 SIN(0 0.0558 400000000) AC 0.5" savecurrent=false}
+C {vsource.sym} -560 -70 0 0 {name=V5 value="0 SIN(0 0.0558 100000000) AC 0.5" savecurrent=false}
 C {vsource.sym} -885 195 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} -885 245 0 0 {name=l3 lab=GND}
 C {lab_wire.sym} -885 105 0 0 {name=p1 sig_type=std_logic lab=VDD}
@@ -274,7 +274,7 @@ print x2_vth_M0
 spice_ignore=true}
 C {lab_wire.sym} -370 -150 0 0 {name=p7 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -310 -35 0 0 {name=p8 sig_type=std_logic lab=VN}
-C {vsource.sym} -330 80 2 0 {name=V3 value="0 SIN(0 0.0558 400000000) AC 0.5" savecurrent=false}
+C {vsource.sym} -330 80 2 0 {name=V3 value="0 SIN(0 0.0558 100000000) AC 0.5" savecurrent=false}
 C {code.sym} -740 -100 0 0 {name=STEP
 only_toplevel=true
 value="
@@ -321,7 +321,7 @@ set wr_singlescale
 set wr_vecnames
 
 save all
-tran 2.44140625p 250n
+tran 5n 250n
 *write NMOS_diode_large_signal.raw
 
 let Vout1 = v(Vout1)
@@ -355,3 +355,4 @@ let Vo = Vo1-Vo2
 "
 spice_ignore=false
 }
+C {code_shown.sym} -620 -380 0 0 {name=s1 only_toplevel=false value=".inc ../../../../../Layout_and_Related_files/pex/OTA_Telescopic_TOP_wp.spice"}
